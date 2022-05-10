@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments :: html_head (type='tag')"></div>
     <link rel="stylesheet" href="/vendors/linericon/style.css">
@@ -36,7 +36,7 @@
                         <h4>New to our website?</h4>
                         <p>There are advances being made in science and technology everyday, and a good example of this
                             is the</p>
-                        <a class="button button-account" href="register.html">Create an Account</a>
+                        <a class="button button-account" th:href="@{/register}">Create an Account</a>
                     </div>
                 </div>
             </div>

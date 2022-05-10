@@ -1,6 +1,8 @@
 package com.kms.hhgiap.aroma;
 
+import com.kms.hhgiap.aroma.user.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -42,7 +44,9 @@ public class MainController {
         return "login";
     }
     @GetMapping("/register")
-    public String showRegisterPage() {
+    public String showRegisterPage(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("pageTitle", "Register");
         return "register";
     }
     @GetMapping("/contact")
