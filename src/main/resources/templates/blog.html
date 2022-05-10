@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: html_head"></head>
+<head th:replace="fragments :: html_head(type='none')"></head>
 <body>
 <header th:replace="fragments :: menu"/>
 
@@ -585,14 +585,6 @@
 
 <footer th:replace="fragments :: footer"/>
 
-
-<script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
-<script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="/vendors/skrollr.min.js"></script>
-<script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
-<script src="/vendors/nice-select/jquery.nice-select.min.js"></script>
-<script src="/vendors/jquery.ajaxchimp.min.js"></script>
-<script src="/vendors/mail-script.js"></script>
-<script src="/js/main.js"></script>
+<div th:replace="fragments :: js_import(type='tag')"/>
 </body>
 </html>
