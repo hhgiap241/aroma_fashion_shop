@@ -1,5 +1,7 @@
 package com.kms.hhgiap.aroma.category;
 
+import com.kms.hhgiap.aroma.product.Product;
+import com.kms.hhgiap.aroma.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +16,15 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("/category")
     public String showCategoryPage(Model model) {
         List<Category> categories = (List<Category>) categoryRepository.findAll();
+        List<Product> products = (List<Product>) productRepository.findAll();
         model.addAttribute("categories", categories);
+        model.addAttribute("productList", products);
         model.addAttribute("pageTitle", "Category");
         return "category";
     }
