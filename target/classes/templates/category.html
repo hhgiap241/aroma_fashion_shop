@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="card-body">
                                         <p th:text="${product.category.name}"></p>
-                                        <h4 class="card-product__title"><a href="#" th:text="${product.name}">Quartz
+                                        <h4 class="card-product__title"><a th:href="@{'/single-product/' + ${product.id}}" th:text="${product.name}">Quartz
                                             Belt Watch</a></h4>
                                         <p class="card-product__price" th:text="'$' + ${product.price}">$150.00</p>
                                     </div>
