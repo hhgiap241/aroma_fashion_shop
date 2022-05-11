@@ -51,7 +51,7 @@
                     </div>
                     <form class="row login_form" th:action="@{/register/save}" method="post" th:object="${user}" id="register_form">
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email Address"
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"  th:field="*{email}" required>
                         </div>
                         <div class="col-md-12 form-group">

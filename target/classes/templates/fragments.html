@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="html_head (type)" th:remove="${type}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +39,7 @@
                                aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" th:href="@{/category}">Shop Category</a></li>
-                                <li class="nav-item"><a class="nav-link" th:href="@{/single-product}">Product Details</a>
-                                </li>
+
                                 <li class="nav-item"><a class="nav-link" th:href="@{/checkout}">Product Checkout</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/single-order}">Order Detail</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/cart}">Shopping Cart</a></li>
@@ -66,6 +65,15 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Product Management</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" th:href="@{/single-product}">Product Details</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/add-product}">Add New Product</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <ul class="nav-shop">

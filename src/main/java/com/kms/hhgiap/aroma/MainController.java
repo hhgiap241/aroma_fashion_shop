@@ -1,44 +1,51 @@
 package com.kms.hhgiap.aroma;
 
+import com.kms.hhgiap.aroma.product.Product;
 import com.kms.hhgiap.aroma.user.User;
-import com.kms.hhgiap.aroma.user.UserException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MainController {
     @GetMapping("")
-    public String showHomePage() {
+    public String showHomePage(Model model) {
+        model.addAttribute("pageTitle", "Home");
         return "index";
     }
     @GetMapping("/category")
-    public String showCategoryPage() {
+    public String showCategoryPage(Model model) {
+        model.addAttribute("pageTitle", "Category");
         return "category";
     }
     @GetMapping("/single-product")
-    public String showProductDetailPage() {
+    public String showProductDetailPage(Model model) {
+        model.addAttribute("pageTitle", "Single Product");
         return "single-product";
     }
     @GetMapping("/checkout")
-    public String showCheckoutPage() {
+    public String showCheckoutPage(Model model) {
+        model.addAttribute("pageTitle", "Checkout");
         return "checkout";
     }
     @GetMapping("/single-order")
-    public String showOrderDetailPage() {
+    public String showOrderDetailPage(Model model) {
+        model.addAttribute("pageTitle", "Order Detail");
         return "single-order";
     }
     @GetMapping("/cart")
-    public String showCartPage() {
+    public String showCartPage(Model model) {
+        model.addAttribute("pageTitle", "Cart");
         return "cart";
     }
     @GetMapping("/blogs")
-    public String showBlogListPage() {
+    public String showBlogListPage(Model model) {
+        model.addAttribute("pageTitle", "Blogs");
         return "blog";
     }
     @GetMapping("/single-blog")
-    public String showBlogDetailPage() {
+    public String showBlogDetailPage(Model model) {
+        model.addAttribute("pageTitle", "Single Blog");
         return "single-blog";
     }
     @GetMapping("/login")
@@ -54,7 +61,14 @@ public class MainController {
         return "register";
     }
     @GetMapping("/contact")
-    public String showContactPage() {
+    public String showContactPage(Model model) {
+        model.addAttribute("pageTitle", "Contact");
         return "contact";
+    }
+    @GetMapping("/add-product")
+    public String showAddProductPage(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("pageTitle", "Add New Product");
+        return "add-product";
     }
 }

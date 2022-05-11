@@ -10,7 +10,7 @@ public class User {
     private Integer id;
     @Column(nullable = false, unique = true, length = 45)
     private String email;
-    @Column(nullable = false, length = 45)
+    @Column(nullable = false, length = 100)
     private String password;
     private boolean enabled = true;
     @Transient
