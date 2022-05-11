@@ -13,16 +13,12 @@ public class MainController {
         model.addAttribute("pageTitle", "Home");
         return "index";
     }
-    @GetMapping("/category")
-    public String showCategoryPage(Model model) {
-        model.addAttribute("pageTitle", "Category");
-        return "category";
-    }
-    @GetMapping("/single-product")
-    public String showProductDetailPage(Model model) {
-        model.addAttribute("pageTitle", "Single Product");
-        return "single-product";
-    }
+
+//    @GetMapping("/single-product")
+//    public String showProductDetailPage(Model model) {
+//        model.addAttribute("pageTitle", "Single Product");
+//        return "single-product";
+//    }
     @GetMapping("/checkout")
     public String showCheckoutPage(Model model) {
         model.addAttribute("pageTitle", "Checkout");
@@ -64,11 +60,5 @@ public class MainController {
     public String showContactPage(Model model) {
         model.addAttribute("pageTitle", "Contact");
         return "contact";
-    }
-    @GetMapping("/add-product")
-    public String showAddProductPage(Model model) {
-        model.addAttribute("product", new Product());
-        model.addAttribute("pageTitle", "Add New Product");
-        return "add-product";
     }
 }

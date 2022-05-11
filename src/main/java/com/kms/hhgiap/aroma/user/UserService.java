@@ -8,7 +8,8 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Autowired private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public void createUser(User user) throws UserException {
         Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
