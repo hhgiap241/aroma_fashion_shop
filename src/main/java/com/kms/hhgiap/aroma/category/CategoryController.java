@@ -1,5 +1,7 @@
 package com.kms.hhgiap.aroma.category;
 
+import com.kms.hhgiap.aroma.brand.Brand;
+import com.kms.hhgiap.aroma.brand.BrandRepository;
 import com.kms.hhgiap.aroma.product.Product;
 import com.kms.hhgiap.aroma.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,17 @@ public class CategoryController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private BrandRepository brandRepository;
+
     @GetMapping("/category")
     public String showCategoryPage(Model model) {
         List<Category> categories = (List<Category>) categoryRepository.findAll();
         List<Product> products = (List<Product>) productRepository.findAll();
+        List<Brand> brands = (List<Brand>) brandRepository.findAll();
         model.addAttribute("categories", categories);
         model.addAttribute("productList", products);
+        model.addAttribute("brandList", brands);
         model.addAttribute("pageTitle", "Category");
         return "category";
     }

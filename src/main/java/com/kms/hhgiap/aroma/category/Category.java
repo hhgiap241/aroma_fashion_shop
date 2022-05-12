@@ -1,9 +1,8 @@
 package com.kms.hhgiap.aroma.category;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.kms.hhgiap.aroma.brand.Brand;
+
+import javax.persistence.*;
 
 @Entity
 public class Category {
@@ -12,6 +11,9 @@ public class Category {
     private Integer id;
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
     public Category() {
     }
 
@@ -29,6 +31,14 @@ public class Category {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public String getName() {

@@ -13,11 +13,11 @@
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
-                <h1>Add New Product</h1>
+                <h1>Add New Brand</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add New Product</li>
+                        <li class="breadcrumb-item active" aria-current="page">Add New Brand</li>
                     </ol>
                 </nav>
             </div>
@@ -39,33 +39,29 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form class="row login_form" id="contactForm" th:action="@{/add-product}" th:object="${product}"
+                    <form class="row login_form" id="contactForm" th:action="@{/add-brand}" th:object="${brand}"
                           method="post">
-                        <label for="basic-url" class="h6">Product Name</label>
+                        <label for="basic-url" class="h6">Brand Name</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="basic-url"
                                    aria-describedby="basic-addon3" required placeholder="Shoe" th:field="*{name}">
                         </div>
-                        <label for="floatingTextarea2" class="h6">Product Description</label>
-                        <div class="form-floating mb-3 input-group">
-                            <textarea class="form-control" placeholder="Description" id="floatingTextarea2"
-                                      style="height: 100px" th:field="*{description}" required></textarea>
-                        </div>
-                        <label for="price" class="h6">Product Price</label>
+<!--                        <label for="category-choose" class="h6">Product Category</label>-->
                         <div class="mb-3 input-group">
-                            <input type="number" step="0.1" class="form-control" name="name" placeholder="Price"
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'"
-                                   th:field="*{price}" id="price" required>
-                        </div>
-                        <label for="category-choose" class="h6">Product Category</label>
-                        <div class="mb-3 input-group">
-                            <select class="form-select w-100" aria-label="Default select example"
-                                    th:field="*{category}" id="category-choose">
-                                <option selected value="-1">Choose Category</option>
-                                <th:block th:each="category:${categoryList}">
-                                    <option th:value="${category.id}" th:text="${category.name}"/>
-                                </th:block>
-                            </select>
+<!--                            <select class="form-group w-100 block" aria-label="Default select example"-->
+<!--                                    th:field="*{categories}" id="category-choose" multiple="multiple">-->
+<!--                                <option selected value="-1">Choose Category</option>-->
+<!--                                <th:block th:each="category:${categoryList}">-->
+<!--                                    <option th:value="${category.id}" th:text="${category.name}"/>-->
+<!--                                </th:block>-->
+<!--                            </select>-->
+                            <th:block th:each="category:${categoryList}">
+                            <div class="form-check"  style="padding-right: 100%" >
+                                    <input class="form-check-input" type="checkbox" th:value="${category.id}" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault" th:text="${category.name}">
+                                    </label>
+                            </div>
+                            </th:block>
                         </div>
                         <div class="mb-3 input-group">
                             <button type="submit" value="submit" class="button button-login w-100">Submit</button>
