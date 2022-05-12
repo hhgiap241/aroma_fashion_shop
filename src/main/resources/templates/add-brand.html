@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="login_form_inner">
-                    <h3>Add New Product</h3>
+                    <h3>Add New Brand</h3>
                     <div th:if="${message}" class="alert alert-danger text-center">
                         [[${message}]]
                         <button type="button" class="close" onclick="this.parentElement.style.display='none'">
@@ -46,7 +46,7 @@
                             <input type="text" class="form-control" id="basic-url"
                                    aria-describedby="basic-addon3" required placeholder="Shoe" th:field="*{name}">
                         </div>
-<!--                        <label for="category-choose" class="h6">Product Category</label>-->
+                        <label class="h6">Brand Categories</label>
                         <div class="mb-3 input-group">
 <!--                            <select class="form-group w-100 block" aria-label="Default select example"-->
 <!--                                    th:field="*{categories}" id="category-choose" multiple="multiple">-->
@@ -55,9 +55,10 @@
 <!--                                    <option th:value="${category.id}" th:text="${category.name}"/>-->
 <!--                                </th:block>-->
 <!--                            </select>-->
+<!--                            <input type="hidden" th:field="*{categories}" id="category-choose" multiple="multiple">-->
                             <th:block th:each="category:${categoryList}">
                             <div class="form-check"  style="padding-right: 100%" >
-                                    <input class="form-check-input" type="checkbox" th:value="${category.id}" id="flexCheckDefault">
+                                    <input class="form-check-input" type="checkbox" th:field="*{categories}" th:value="${category.id}" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault" th:text="${category.name}">
                                     </label>
                             </div>

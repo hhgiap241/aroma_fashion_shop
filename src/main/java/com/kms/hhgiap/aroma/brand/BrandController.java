@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -25,5 +26,10 @@ public class BrandController {
         model.addAttribute("categoryList", categories);
         model.addAttribute("pageTitle", "Single Brand");
         return "add-brand";
+    }
+    @PostMapping("/add-brand")
+    public String addBrand(Brand brand) {
+        brandRepository.save(brand);
+        return "redirect:/category";
     }
 }

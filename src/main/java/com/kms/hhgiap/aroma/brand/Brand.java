@@ -3,6 +3,7 @@ package com.kms.hhgiap.aroma.brand;
 import com.kms.hhgiap.aroma.category.Category;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,8 +13,9 @@ public class Brand {
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "brand")
-    private List<Category> categories;
+    @OneToMany
+    @JoinColumn(name = "brand_id")
+    private List<Category> categories = new ArrayList<>();
 
     public Integer getId() {
         return id;
